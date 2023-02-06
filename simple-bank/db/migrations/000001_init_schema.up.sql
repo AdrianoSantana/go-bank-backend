@@ -1,5 +1,5 @@
 CREATE TABLE "accounts" (
-  "id" bigint PRIMARY KEY,
+  "id" serial PRIMARY KEY,
   "owner" varchar,
   "balance" bigint,
   "currency" varchar,
@@ -7,14 +7,14 @@ CREATE TABLE "accounts" (
 );
 
 CREATE TABLE "entries" (
-  "id" bigint PRIMARY KEY,
+  "id" serial PRIMARY KEY,
   "account_id" int NOT NULL,
   "amount" bigint NOT NULL,
   "created_at" timestamptz DEFAULT (now())
 );
 
 CREATE TABLE "transfers" (
-  "id" bigint PRIMARY KEY,
+  "id" serial PRIMARY KEY,
   "from_account_id" int NOT NULL,
   "to_account_id" int NOT NULL,
   "amount" bigint NOT NULL,
